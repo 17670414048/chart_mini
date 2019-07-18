@@ -1,0 +1,189 @@
+.index-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.i-wrapper {
+background: #FCFCFC;
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+.phcolor {
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(74,74,74,0.3);
+  }
+.header-image {
+  width: 100%;
+  height: 320rpx;
+}
+
+.name {
+  box-sizing: border-box;
+  width: 640rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 48rpx;
+  border: 2rpx solid rgba(204, 204, 204, 1);
+  padding-left: 40rpx;
+  margin-bottom: 32rpx;
+}
+
+.search-wrapper {
+  margin-top: 40rpx;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(237, 237, 237, 1);
+  
+}
+
+.input-group {
+  position: relative;
+}
+
+.body-info {
+  box-sizing: border-box;
+  width: 680rpx;
+  height: 72rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 36rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  padding-left: 80rpx;
+}
+
+.image-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.evaluate {
+  width: 640rpx;
+  height: 88rpx;
+  background: rgba(84, 64, 157, 1);
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.birth-picker {
+  box-sizing: border-box;
+  width: 640rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 48rpx;
+  border: 2rpx solid rgba(204, 204, 204, 1);
+  padding-left: 40rpx;
+}
+
+.gestational-week-wrapper {
+  width: 640rpx;
+  margin-top: 32rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gestational-week {
+  width: 440rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 48rpx;
+  border: 2rpx solid rgba(204, 204, 204, 1);
+  padding-left: 40rpx;
+  margin-right: 20rpx;
+}
+
+.switch {
+  height: 88rpx;
+  width: 150rpx;
+  background: #464646;
+  border-radius: 44rpx;
+  position: relative;
+}
+
+.switch-button {
+  width: 58rpx;
+  height: 58rpx;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+}
+
+.switch-text {
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  transition: all 0.3s;
+}
+
+.switch-button.male {
+  left: 75rpx;
+}
+
+.switch-text.male {
+  right: 90rpx;
+}
+
+.switch-button.female {
+  left: 15rpx;
+}
+
+.switch-text.female {
+  right: 25rpx;
+}
+.patient-info-card-wrapper {
+  box-sizing: border-box;
+  height: calc(100vh - 988rpx);
+  width: 100%;
+}
+
+.patient-info-card {
+  box-sizing: border-box;
+  height: 112rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow:0px 0px 20px 0px rgba(75,29,117,0.14);
+  border-radius:16rpx 18rpx 16rpx 16rpx;
+  margin-bottom: 20rpx;
+  margin-left: 36rpx;
+  margin-right: 34rpx;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.patient-info-card:first-child {
+  margin-top: 40rpx;
+}
+
+.card-name {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(74, 74, 74, 1);
+}
+
+.card-time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}

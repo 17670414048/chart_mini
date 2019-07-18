@@ -1,0 +1,35 @@
+<view class='i-wrapper'>
+  <view class='i-up'>
+    <view class="">
+      <image src='../../images/title.png' class='header-image'></image>
+    </view>
+    <view class='index-wrapper'>
+      <input placeholder='请输入姓名' placeholder-class="phcolor" class='name' bindinput="getName" value="{{name}}"></input>
+      <picker mode="date" value="{{time}}" end="{{end}}" bindchange="bindTimeChange">
+        <input class="birth-picker" placeholder-class="phcolor" disabled placeholder='出生日期' value='{{time}}'></input>
+      </picker>
+      <view class='gestational-week-wrapper'>
+        <input placeholder='孕周  例：35+3' placeholder-class="phcolor" class='gestational-week' bindinput="getGestationalWeek" value="{{gestationalWeek}}"></input>
+        <view class='switch'>
+          <view class='switch-button {{male? "male":"female"}}' bindtap='changeGender'></view>
+          <view class='switch-text {{male? "male":"female"}}'>{{gender==0?'女':'男'}}</view>
+        </view>
+      </view>
+      <button class='evaluate' bindtap='goEvaluate'>去评估</button>
+      <view class='search-wrapper'>
+        <view class='input-group'>
+          <input placeholder='请输入患者姓名搜索' confirm-type="search" placeholder-class="phcolor" class='body-info' bindinput="getSearch" value="{{searchText}}" bindconfirm='query'></input>
+          <image class='image-icon' src='../../images/search.png' bindtap='query'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='i-down'>
+    <scroll-view scroll-y class='patient-info-card-wrapper'>
+      <view class='patient-info-card' wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}" data-week="{{item.pregnantweeks}}" bindtap="go">
+        <text class='card-name'>{{item.name}}</text>
+        <text class='card-time'>建档：{{item.created}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

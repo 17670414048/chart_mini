@@ -1,0 +1,88 @@
+<view class='content-wrapper'>
+  <picker mode="date" value="{{time2}}" end="{{end}}" bindchange="bindTimeChange2">
+    <input class="evalute-picker" placeholder-class="phcolor" disabled placeholder='评估时间' value='{{time2}}'></input>
+  </picker>
+  <view class='body-info-wrapper {{imgUrls.length>0?"hasCard":""}}'>
+    <view class='input-group'>
+      <input placeholder='体重' placeholder-class="phcolor" type="number" class='body-info' bindinput="getWeight" value="{{weight}}"></input>
+      <text class='unit'>g</text>
+    </view>
+    <view class='input-group'>
+      <input placeholder='身高' placeholder-class="phcolor" type="digit" class='body-info' bindinput="getHeight" value="{{height}}"></input>
+      <text class='unit'>cm</text>
+    </view>
+    <view class='input-group'>
+      <input placeholder='头围' placeholder-class="phcolor" type="digit" class='body-info' bindinput="getHead" value="{{head}}"></input>
+      <text class='unit'>cm</text>
+    </view>
+    <button class='body-info-button' bindtap="confirmAdd">确认添加</button>
+  </view>
+  <view id="footScroll" class="footScroll">
+    <view class='footer' wx:if="{{imgUrls.length>0}}">
+      <swiper indicator-dots="{{indicatorDots}}" indicator-color='#FFFFFF' next-margin='40px' current='{{currentNum}}' bindanimationfinish='changeCard' class='f'>
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class='card'>
+              <image src='../../images/close.png' class='close' bindtap='delInfo' data-key="{{item.id}}"></image>
+              <view class='top'>
+                <view class='left-top'>
+                  <view class='card-number'>{{item.year}}</view>
+                  <view class='card-number small'>{{item.md}}</view>
+                </view>
+                <view class='right-top'>
+                  <view class='card-info'>
+                    <view class='card-title'>体重</view>
+                    <view class='card-contentr'>{{item.growth_weight}}g</view>
+                  </view>
+                  <view class='card-info'>
+                    <view class='card-title'>身高</view>
+                    <view class='card-contentr'>{{item.growth_height}}cm</view>
+                  </view>
+                  <view class='card-info'>
+                    <view class='card-title'>头围</view>
+                    <view class='card-contentr'>{{item.growth_headcircle}}cm</view>
+                  </view>
+                </view>
+              </view>
+              <view class='down'>
+                <view>{{item.stand_lab}}：</view>
+                <view class='right'>
+                  <view class='answer'>
+                    <view class='tac'>{{item.weight_score}}</view>
+                    <view class='tac'>{{item.weight_percentile}}</view>
+                  </view>
+                  <view class='vertical-line'></view>
+                  <view class='answer'>
+                    <view class='tac'>{{item.height_score}}</view>
+                    <view class='tac'>{{item.height_percentile}}</view>
+                  </view>
+                  <view class='vertical-line'></view>
+                  <view class='answer'>
+                    <view class='tac'>{{item.hc_score}}</view>
+                    <view class='tac'>{{item.hc_percentile}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <scroll-view scroll-x class='calculate-style'>
+    <button wx:for="{{styleArr}}" wx:key="{{index}}" class='button-style {{index === activeStyle? "active-style":""}}' data-index='{{index}}' bindtap='showCurve' data-first="{{index+1}}">
+      {{item}}
+    </button>
+  </scroll-view>
+  <view class='charts'>
+<view class="container" id="curve" style="width:100%;z-index:1;">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  </view>
+  </view>
+  <scroll-view scroll-x class='chart-info'>
+    <view wx:for="{{babyInfoArr}}" wx:key="{{index}}" class='chart-info-style {{index === activeChartInfo? "active-chart-info":""}}' data-index='{{index}}' bindtap="showCurveType" data-first="{{index+1}}">
+      {{item}}
+    </view>
+  </scroll-view>
+  <button class="saveCharts" bindtap="getphoto">保存当前曲线到相册</button>
+</view>
